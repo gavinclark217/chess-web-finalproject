@@ -1,0 +1,16 @@
+ul{
+    border-style:solid;
+    width:10%;
+    padding-left:70px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius:90px;
+    background-color:white;
+}
+body{
+    background-color:rgba(83, 113, 103, 1);
+}
+h2{
+    font-size:35px;
+    color:white;
+}
