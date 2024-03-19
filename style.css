@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#board {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    grid-template-rows: repeat(8, 100px);
+    border: 2px solid black;
+}
+
+.spot {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.piece {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.white {
+    background-color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+.white-piece {
+    background-color: white;
+}
+
+.black-piece {
+    background-color: black;
+}
+
+.rook {
+    background-image: url('rook.png');
+}
+
+.knight {
+    background-image: url('knight.png');
+}
+
+.bishop {
+    background-image: url('bishop.png');
+}

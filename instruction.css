@@ -1,0 +1,45 @@
+.next{
+    width:4%;
+    border-style:solid;
+    border-radius:5px;
+    border-width:2px;
+    font-size:30px;
+    padding-left:20px;
+    padding-top:5px;
+    padding-bottom:10px;
+    color:black;
+    background-color:white;
+    position:absolute;
+    margin:25px;
+    left:80%;
+}
+.next:hover{
+    background-color:blue;
+}
+body{
+    background-color:rgba(83, 113, 103, 1);
+}
+header h1{
+    display:flex;
+    justify-content: center;
+    font-size:55px;
+    color:white;
+}
+.instruc{
+    border-style:hidden;
+    background-color:rgba(217, 217, 217, 1);
+    width:75%;
+    border-radius:10px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:50px;
+    padding-right:50px;
+    margin-left:12.5%;
+}
+.instruc h2{
+    font-size:45px;
+}
+.instruc p{
+    text-indent:15px;
+    font-size:35px;
+}
