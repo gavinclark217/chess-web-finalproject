@@ -90,7 +90,16 @@ document.addEventListener("DOMContentLoaded", function () {
             a = aside + aup
 
             function whosTurn(toggle){
-                if (item.innerText == `${toggle}pawn`)
+                if (item.innerText == `${toggle}pawn`){
+                    item.style.backgroundColor = 'pink'
+
+                    if(tog % 2 !== 0 && aup < 800){
+                        //15:16
+                        if(document.getElementById(`b${a + 100}`) .innerText.length == 0){
+                            document.getElementById
+                        }
+                    }
+                }
             }
         })
     })
