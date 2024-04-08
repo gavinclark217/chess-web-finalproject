@@ -185,9 +185,100 @@ document.addEventListener("DOMContentLoaded", function () {
                             break
                         }
                     }
-                    
+
                     item.style.backgroundColor= 'pink'
                 }
+
+                if (item.innerText == `${toggle}knight`){
+
+                    if(aside < 7 && aup < 800){
+                        document.getElementById(`b${a + 100 + 2}`).style.backgroundColor = 'green'
+                    }
+                    if(aside < 7 && aup > 200){
+                        document.getElementById(`b${a - 100 + 2}`).style.backgroundColor = 'green'
+                    }
+                    if(aside < 8 && aup < 700){
+                        document.getElementById(`b${a + 200 + 1}`).style.backgroundColor = 'green'
+                    }
+                    if(aside > 1 && aup < 700){
+                        document.getElementById(`b${a + 200 - 1}`).style.backgroundColor = 'green'
+                    }
+                    if(aside > 2 && aup < 800){
+                        document.getElementById(`b${a - 2 + 100}`).style.backgroundColor = 'green'
+                    }
+                    if(aside > 2 && aup > 100){
+                        document.getElementById(`b${a - 2 - 100}`).style.backgroundColor = 'green'
+                    }
+                    if(aside < 8 && aup > 200){
+                        document.getElementById(`b${a - 200 + 1}`).style.backgroundColor = 'green'
+                    }
+                    if(aside > 1 && aup > 200){
+                        document.getElementById(`b${a - 200 - 1}`).style.backgroundColor = 'green'
+                    }
+
+                    item.style.backgroundColor= 'pink'
+
+                }
+                //I have bishop and queen function left, if you have timem Can you write it {in here}//
+            }
+            if(tog % 2 !== 0){
+                document.getElementById('tog').innerText = "White's Turn"
+                whosTurn('W')
+            }
+            if(tog % 2 == 0){
+                document.getElementById('tog').innerText = "Black's turn"
+                whosTurn('B')
+            }
+
+            reddish()
+
+            numOfKings = 0
+
+            document.querySelectorAll('.box').forEach(win => {
+                if (win.innertext == 'Wking' || win.innerText == 'Bking'){
+                    numOfKings += 1
+                }
+            })
+            if (numOfKings == 1){
+                setTimeout(() => {
+                    if (tog % 2 == 0){
+                        alert('White Wins !!')
+                        location.reload()
+                    }
+                    else if (tog % 2 !== 0){
+                        alert('Black Wins !!')
+                        location.reload()
+                    }
+                }, 100)
+            }
+        })
+    })
+    document.querySelectorAll('.box').forEach(hathiTest => {
+        hathiTest.addEventListener('click', function () {
+            if (hathiTest.style.backgroundColor == 'pink'){
+                pinkId = hathiTest.id
+                pinkText = hathiTest.innerText
+
+                document.querySelectorAll('.box').forEach(hathiTest2 => {
+                    hathiTest2.addEventListener('click', function(){
+                        if(hathiTest2style.backgroundColor == 'green' && hathiTest2.innerText.length == 0){
+                            document.getElementById(pinkId).innerText = ''
+                            hathiTest2.innerText = pinkText
+                            coloring()
+                            insertImage()
+                        }
+                    })
+                })
+            }
+        })
+    })
+
+    z = 0
+    document.querySelectorAll('.box').forEach(ee =>{
+        ee.addEventListener('click', function () {
+            z = z +1
+            if (z % 2 == 0 && ee.style.backgroundColor !== 'green'){
+                coloring()
             }
         })
     })

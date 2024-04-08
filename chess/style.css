@@ -46,3 +46,8 @@ li{
     float: right;
     margin-right:50px;
 }
+img{
+    margin:.5px;
+    width:75px;
+    height:76px;
+}
