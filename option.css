@@ -1,3 +1,7 @@
+body{
+    background-color:rgba(83, 113, 103, 1);
+}
+
 ul{
     border-style:solid;
     width:10%;
@@ -7,9 +11,7 @@ ul{
     border-radius:90px;
     background-color:white;
 }
-body{
-    background-color:rgba(83, 113, 103, 1);
-}
+
 h2{
     font-size:35px;
     color:white;

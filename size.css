@@ -1,32 +1,66 @@
-body{
-    background-color:rgba(83, 113, 103, 1);
+body {
+    background-color: rgba(83, 113, 103, 1);
 }
-.sizee{
-    background-color: lightgray;
-    width:35%;
-    border-style: hidden;
-    border-radius:10px;
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-option{
-    border-style:solid;
-    width:20%;
-    display:flex;
+
+.size {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+    width: 35%;
+    border-style: hidden;
+    border-radius: 10px;
+}
+
+input {
+    width: 20%;
+    display: flex;
     justify-content: center;
     font-size: 35px;
-    margin:30px;
+    margin: 30px;
 }
-h2{
-    font-size: 40px;;
+
+h2 {
+    font-size: 40px;
+    margin: 10px;
 }
-.sizze{
-    display:flex;
-    justify-content: center;
+
+.options {
+    display: flex;
     flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
-button{
+
+button {
     font-size: 30px;
     padding-left: 20px;
     padding-right: 20px;
-    border-width:1.5px;
+    border-width: 1.5px;
+}
+
+.next {
+    width: 4%;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    color: black;
+    background-color: white;
+    position: absolute;
+    margin: 25px;
+    left: 80%;
+    bottom: 0%;
+}
+
+.next:hover{
+    background-color:blue;
 }

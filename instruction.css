@@ -10,7 +10,10 @@
     color:black;
     background-color:white;
     position:absolute;
-    margin:25px;
+    margin-top: 23px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
     left:80%;
 }
 .next:hover{
