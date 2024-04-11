@@ -219,7 +219,80 @@ document.addEventListener("DOMContentLoaded", function () {
                     item.style.backgroundColor= 'pink'
 
                 }
-                //I have bishop and queen function left, if you have timem Can you write it {in here}//
+                
+                function bishop(item, toggle) {
+                    if (item.innerText == `${toggle}bishop`) {
+                      if (aside < 8 && aup < 800) {
+                        if (document.getElementById(`b${a + 9}`).innerText.length == 0) {
+                          document.getElementById(`b${a + 9}`).style.backgroundColor = 'green';
+                        } else if (document.getElementById(`b${a + 9}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a + 9}`).style.backgroundColor = 'green';
+                        }
+                      }
+                      if (aside < 8 && aup > 100) {
+                        if (document.getElementById(`b${a - 91}`).innerText.length == 0) {
+                          document.getElementById(`b${a - 91}`).style.backgroundColor = 'green';
+                        } else if (document.getElementById(`b${a - 91}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a - 91}`).style.backgroundColor = 'green';
+                        }
+                      }
+                      if (aside > 1 && aup < 800) {
+                        if (document.getElementById(`b${a + 7}`).innerText.length == 0) {
+                          document.getElementById(`b${a + 7}`).style.backgroundColor = 'green';
+                        } else if (document.getElementById(`b${a + 7}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a + 7}`).style.backgroundColor = 'green';
+                        }
+                      }
+                      if (aside > 1 && aup > 100) {
+                        if (document.getElementById(`b${a - 7}`).innerText.length == 0) {
+                          document.getElementById(`b${a - 7}`).style.backgroundColor = 'green';
+                        } else if (document.getElementById(`b${a - 7}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a - 7}`).style.backgroundColor = 'green';
+                        }
+                      }
+                      item.style.backgroundColor = 'pink';
+                    }
+                  }
+                  
+                  function queen(item, toggle) {
+                    if (item.innerText == `${toggle}queen`) {
+                      // Queen moves like a rook
+                      for (let i = 1; i < 9; i++) {
+                        if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText == 0) {
+                          document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green';
+                        } else if ((a + i * 100) < 900 && document.getElementById(`b${a + i * 100}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a + i * 100}`).style.backgroundColor = 'green';
+                          break;
+                        }
+                      }
+                      for (let i = 1; i < 9; i++) {
+                        if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText == 0) {
+                          document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green';
+                        } else if ((a - i * 100) > 100 && document.getElementById(`b${a - i * 100}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a - i * 100}`).style.backgroundColor = 'green';
+                          break;
+                        }
+                      }
+                      for (let i = 1; i < 9; i++) {
+                        if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText == 0) {
+                          document.getElementById(`b${a + i}`).style.backgroundColor = 'green';
+                        } else if ((a + i) < (aup + 9) && document.getElementById(`b${a + i}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a + i}`).style.backgroundColor = 'green';
+                          break;
+                        }
+                      }
+                      for (let i = 1; i < 9; i++) {
+                        if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText == 0) {
+                          document.getElementById(`b${a - i}`).style.backgroundColor = 'green';
+                        } else if ((a - i) > (aup) && document.getElementById(`b${a - i}`).innerText[0]!= toggle) {
+                          document.getElementById(`b${a - i}`).style.backgroundColor = 'green';
+                          break;
+                        }
+                      }
+                      item.style.backgroundColor = 'pink';
+                    }
+                  }
+                  
             }
             if(tog % 2 !== 0){
                 document.getElementById('tog').innerText = "White's Turn"
