@@ -1,0 +1,47 @@
+body{
+    background-color:rgba(83, 113, 103, 1);
+}
+p{
+    font-size: 35px;;
+}
+.friends{
+    border-style: hidden;
+    background-color:rgba(217, 217, 217, 1);
+    width:35%;
+    height:800px;;
+    border-radius:10px;
+    padding-top:50px
+}
+.friend{
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    flex-direction: column;
+    border-style:solid;
+    background-color: rgb(240, 240, 240);
+    padding:30px;
+    margin:30px;
+    margin-bottom: 30px;
+}
+.other{
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    flex-direction: column;
+    border-style:solid;
+    background-color: rgb(240, 240, 240);
+    padding:30px;
+    margin:30px;
+    margin-bottom: 30px;
+}
+button {
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 1.5px;
+    margin-left:80%;
+}
+button:hover{
+    background-color: blue;
+    color: white;
+}
