@@ -10,7 +10,6 @@ const board = new THREE.Object3D();
 const geometry = new THREE.BoxGeometry(10, 1, 10);
 const whiteMaterial = new THREE.MeshBasicMaterial({ color: 0xf0d9b5 });
 const blackMaterial = new THREE.MeshBasicMaterial({ color: 0xb58863 });
-// const loader = new THREE.GLTFLoader();
 
 for (let y = 0; y < 8; y++) {
     for (let x = 0; x < 8; x++) {
@@ -29,23 +28,23 @@ function createPiece(color, x, y) {
     return piece;
 }
 
+// const loader = new THREE.GLTFLoader();
 
-
-function loadPiece(x, y, modelPath) {
-    loader.load(
-        modelPath,
-        function (gltf) {
-            const piece = gltf.scene;
-            piece.scale.set(0.5, 0.5, 0.5); // Adjust the scale if needed
-            piece.position.set(x * 10 - 35, 0, y * 10 - 35); // Adjust the position to place the piece above the board
-            board.add(piece);
-        },
-        undefined,
-        function (error) {
-            console.error('An error occurred while loading the 3D model', error);
-        }
-    );
-}
+// function loadPiece(x, y, modelPath) {
+//     loader.load(
+//         modelPath,
+//         function (gltf) {
+//             const piece = gltf.scene;
+//             piece.scale.set(0.5, 0.5, 0.5); // Adjust the scale if needed
+//             piece.position.set(x * 10 - 35, 0, y * 10 - 35); // Adjust the position to place the piece above the board
+//             board.add(piece);
+//         },
+//         undefined,
+//         function (error) {
+//             console.error('An error occurred while loading the 3D model', error);
+//         }
+//     );
+// }
 
 board.add(createPiece(0x000000, 0, 0));
 board.add(createPiece(0x000000, 1, 0));
