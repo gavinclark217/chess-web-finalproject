@@ -8,18 +8,27 @@
 
 </head>
 <body>
+    <h1> Chess</h1>
     <section class="friends" id="myName">
         <section class="friend">
             <img src="profile.png">
             <p>Type Your Name here:</p>
-            <input type="text" name="name" id="name" placeholder="Recipient's Name">
+            <form id="myForm">
+                <input type="text" id="userInput" name="userInput">
+                <button type="submit">Submit</button>
+              </form>
+              <div id="output"></div>            
         </section>
         <section class="other">
             <img src="profile.png">
             <p>Type Your Name here:</p>
-            <input type="text" name="name" id="name1" placeholder="Recipient's Name">
+            <form id="myForm1">
+                <input type="text" id="userInput1" name="userInput">
+                <button type="submit">Submit</button>
+              </form>
+              <div id="output1"></div> 
         </section>
-        <button href="index.html">Next</button>
+        <button class="next" href="index.html">Next</button>
     </section>
 </body>
 </html>

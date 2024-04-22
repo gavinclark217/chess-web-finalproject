@@ -10,7 +10,9 @@ p{
     width:35%;
     height:800px;;
     border-radius:10px;
-    padding-top:50px
+    padding-top:50px;
+    padding-bottom: 60px;
+    margin-left:650px;
 }
 .friend{
     display: flex;
@@ -32,16 +34,23 @@ p{
     background-color: rgb(240, 240, 240);
     padding:30px;
     margin:30px;
+
     margin-bottom: 30px;
 }
-button {
+.next {
     font-size: 30px;
     padding-left: 20px;
     padding-right: 20px;
     border-width: 1.5px;
     margin-left:80%;
 }
-button:hover{
+.next:hover{
     background-color: blue;
     color: white;
+}
+h1{
+    display:flex;
+    justify-content: center;
+    font-size:55px;
+    color:white;
 }

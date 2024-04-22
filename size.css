@@ -64,3 +64,9 @@ button {
 .next:hover{
     background-color:blue;
 }
+h1{
+    display:flex;
+    justify-content: center;
+    font-size:55px;
+    color:white;
+}
