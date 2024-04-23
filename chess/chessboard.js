@@ -17,21 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
     insertImage();
 
     function coloring() {
-        const color = document.querySelectorAll('.box')
-
-        color.forEach(color => {
-            getId = color.id;
-            arr = Array.from(getId);
-            arr.shift();
-            aside = eval(arr.pop());
-            aup = eval(arr.shift());
-            a = aside + aup;
-
+        const boxes = document.querySelectorAll('.box');
+    
+        boxes.forEach(box => {
+            const id = box.id;
+            const row = id.slice(1, -1); // Remove the first and last characters (a or 1)
+            const col = Array.from(row).map(Number); // Convert the string to an array of numbers
+            const aside = col.pop();
+            const aup = col.shift();
+            const a = aside + aup;
+    
             if (a % 2 == 0) {
-                color.style.backgroundColor = 'rgb (240, 201. 150)';
+                box.style.backgroundColor = 'rgb(240, 201, 150)';
             }
             if (a % 2 !== 0) {
-                color.style.backgroundColor = 'rgb (100, 75, 43)';
+                box.style.backgroundColor = 'rgb(100, 75, 43)';
             }
         });
     }
@@ -62,23 +62,23 @@ document.addEventListener("DOMContentLoaded", function () {
     tog = 1
     document.querySelectorAll('.box').forEach(item => {
         item.addEventListener('click', function () {
-            // if (item.style.backgroundColor == 'green' && item.innerText.length == 0) {
-            //     tog = tog + 1
-            // }
-            // else if (item.style.backgroundColor == 'green' && item.innerText.length !== 0) {
-            //     document.querySelectorAll('.box').forEach(i => {
-            //         if (i.style.backgroundColor == 'pink') {
-            //             pinkId = i.id
-            //             pinkText = i.innerText
+             if (item.style.backgroundColor == 'green' && item.innerText.length == 0) {
+                 tog = tog + 1
+             }
+             else if (item.style.backgroundColor == 'green' && item.innerText.length !== 0) {
+                 document.querySelectorAll('.box').forEach(i => {
+                     if (i.style.backgroundColor == 'pink') {
+                         pinkId = i.id
+                         pinkText = i.innerText
 
-            //             document.getElementById(pinkId).innerText = ''
-            //             item.innerText = pinkText
-            //             coloring()
-            //             insertImage()
-            //             tog = tog + 1
-            //         }
-            //     })
-            // }
+                         document.getElementById(pinkId).innerText = ''
+                         item.innerText = pinkText
+                         coloring()
+                         insertImage()
+                         tog = tog + 1
+                     }
+                 })
+             }
 
             if (item.style.backgroundColor == 'green') {
                 if (item.innerText.length == 0) {
