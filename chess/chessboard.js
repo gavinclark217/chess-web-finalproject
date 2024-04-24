@@ -241,7 +241,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
                 
-                function bishop(item, toggle) {
                     if (item.innerText == `${toggle}bishop`) {
                       if (aside < 8 && aup < 800) {
                         if (document.getElementById(`b${a + 9}`).innerText.length == 0) {
@@ -273,9 +272,8 @@ document.addEventListener("DOMContentLoaded", function () {
                       }
                       item.style.backgroundColor = 'pink';
                     }
-                  }
-                  
-                  function queen(item, toggle) {
+
+
                     if (item.innerText == `${toggle}queen`) {
                       // Queen moves like a rook
                       for (let i = 1; i < 9; i++) {
@@ -311,7 +309,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                       }
                       item.style.backgroundColor = 'pink';
-                    }
                   }
                   
             }
