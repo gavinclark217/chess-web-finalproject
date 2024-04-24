@@ -36,9 +36,9 @@ li{
     position:relative;
     bottom:5px;
 }
-.allpawn{
+/* .allpawn{
     transform:scale(.7);
-}
+} */
 .authcont{
     width:100vw;
 }

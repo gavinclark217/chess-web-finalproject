@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
     function insertImage() {
         document.querySelectorAll('.box').forEach(image => {
             if (image.innerText.length !== 0) {
                 if (image.innerText == 'Wpawn' || image.innerText == 'Bpawn') {
-                    image.innerHTML = `${image.innerText}<img class="alligmg allpawn" src="${image.innerText}.png" alt="">`;
+                    image.innerHTML = `${image.innerText}<img class="alligmg allpawn" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
 
                 else {
-                    image.innerHTML = `${image.innerText}<img class="alligmg" src="${image.innerText}.png" alt="">`;
+                    image.innerHTML = `${image.innerText}<img class="alligmg" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
             }
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (a % 2 == 0) {
                 box.style.backgroundColor = 'rgb(240, 201, 150)';
             }
-            if (a % 2 !== 0) {
+            else {
                 box.style.backgroundColor = 'rgb(100, 75, 43)';
             }
         });
