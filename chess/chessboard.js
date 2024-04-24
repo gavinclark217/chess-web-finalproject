@@ -22,10 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
         boxes.forEach(box => {
             const id = box.id;
             const row = id.slice(1, -1); // Remove the first and last characters (a or 1)
-            const col = Array.from(row).map(Number); // Convert the string to an array of numbers
-            const aside = col.pop();
-            const aup = col.shift();
-            const a = aside + aup;
+            const col = parseInt(id.charAt(2));
+            // const aside = col.pop();
+            // const aup = col.shift();
+            const rowNumber = row.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
+            const a = rowNumber + col;
     
             if (a % 2 == 0) {
                 box.style.backgroundColor = 'rgb(240, 201, 150)';
