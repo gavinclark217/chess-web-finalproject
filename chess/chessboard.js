@@ -5,38 +5,48 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.box').forEach(image => {
             if (image.innerText.length !== 0) {
                 if (image.innerText == 'Wpawn' || image.innerText == 'Bpawn') {
-                    image.innerHTML = `${image.innerText}<img class="alligmg allpawn" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg allpawn" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
 
                 else {
-                    image.innerHTML = `${image.innerText}<img class="alligmg" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
             }
+
         });
     }
     insertImage();
-
-    function coloring() {
+    // 9 17 25 8x +1
+    function coloring() { 
         const boxes = document.querySelectorAll('.box');
-    
-        boxes.forEach(box => {
-            const id = box.id;
-            const row = id.slice(1, -1); // Remove the first and last characters (a or 1)
-            const col = parseInt(id.charAt(2));
-            // const aside = col.pop();
-            // const aup = col.shift();
-            const rowNumber = row.charCodeAt(0) - 'a'.charCodeAt(0) + 1;
-            const a = rowNumber + col;
-    
-            if (a % 2 == 0) {
+        console.log(boxes)
+        let i = 0;
+        let e = 1;
+        let r = 0;
+        for (const box of boxes) {
+            console.log(Number.isInteger(e / 8), e, i, r)
+            if(Number.isInteger((e + r)/ 9)){
+                r = r + 1;
+                if(r % 2){
+                    i = 1;
+                }
+                else{
+                    i = 0;
+                }
+            }
+            if(i == 0){
                 box.style.backgroundColor = 'rgb(240, 201, 150)';
+                i = 1;
             }
-            else {
+            else{
                 box.style.backgroundColor = 'rgb(100, 75, 43)';
+                i = 0;
             }
-        });
+            e = e +1;
+        
+        }
     }
     coloring();
 
@@ -103,38 +113,51 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            getId = stem.id;
-            arr = Array.from(getId);
-            arr.shift();
-            aside = eval(arr.pop());
-            arr.push('0');
-            aup = eval(arr.join(''));
-            a = aside + aup;
-
+           
             function whosTurn(toggle) {
                 if (item.innerText == `${toggle}pawn`) {
                     item.style.backgroundColor = 'pink';
 
                     if (tog % 2 !== 0 && aup < 800) {
+                        // white pawn
                         if (document.getElementById(`b${a + 100}`).innerText.length == 0) {
+                            // move one step forward
                             document.getElementById(`b${a + 100}`).style.backgroundColor = 'green';
+                            if (a == 100) {
+                                // pawn can move two steps forward from its initial position
+                                if (document.getElementById(`b${a + 200}`).innerText.length == 0) {
+                                    document.getElementById(`b${a + 200}`).style.backgroundColor = 'green';
+                                }
+                            }
                         }
                         if (aside < 8 && document.getElementById(`b${a + 100 + 1}`).innerText.length !== 0) {
+                            // capture diagonally to the right
                             document.getElementById(`b${a + 100 + 1}`).style.backgroundColor = 'green';
                         }
                         if (aside > 1 && document.getElementById(`b${a + 100 - 1}`).innerText.length !== 0) {
+                            // capture diagonally to the left
                             document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green';
                         }
                     }
-
+                    
                     if (tag % 2 == 0 && aup > 100) {
+                        // black pawn
                         if (document.getElementById(`b${a - 100}`).innerText.length == 0) {
-                            document.getElementById(`b${a + 100}`).style.backgroundColor = 'green';
+                            // move one step forward
+                            document.getElementById(`b${a - 100}`).style.backgroundColor = 'green';
+                            if (a == 800) {
+                                // pawn can move two steps forward from its initial position
+                                if (document.getElementById(`b${a - 200}`).innerText.length == 0) {
+                                    document.getElementById(`b${a - 200}`).style.backgroundColor = 'green';
+                                }
+                            }
                         }
                         if (aside < 8 && document.getElementById(`b${a - 100 + 1}`).innerText.length !== 0) {
+                            // capture diagonally to the right
                             document.getElementById(`b${a - 100 + 1}`).style.backgroundColor = 'green';
                         }
                         if (aside > 1 && document.getElementById(`b${a - 100 - 1}`).innerText.length !== 0) {
+                            // capture diagonally to the left
                             document.getElementById(`b${a - 100 - 1}`).style.backgroundColor = 'green';
                         }
                     }
@@ -314,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             if (tog % 2 !== 0) {
                 document.getElementById('tog').innerText = "White's Turn"
-                whosTurn('W');
+                whosTurn ('W');
             }
             if (tog % 2 == 0) {
                 document.getElementById('tog').innerText = "Black's turn"
