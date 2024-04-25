@@ -45,12 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.box').forEach(image => {
 
             if (image.innerText.length !== 0) {
+                i++
                 if (image.innerText == 'Wpawn' || image.innerText == 'Bpawn') {
-                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg allpawn" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg allpawn" id="${image.innerText + i}" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
                 else {
-                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    j++
+                    image.innerHTML = `${image.innerText.slice(1)}<img class="alligmg" id="${image.innerText + j}" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
             }
