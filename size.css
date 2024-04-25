@@ -22,7 +22,18 @@ input {
     display: flex;
     justify-content: center;
     font-size: 35px;
-    margin: 30px;
+    margin: 20px;
+    width: 140px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.save {
+    width: 300px;
 }
 
 h2 {
