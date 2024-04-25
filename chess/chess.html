@@ -6,8 +6,6 @@
     <title>Chess</title>
     <script src="chessboard.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="pieces.js"></script>
-    <script type="module" src="/js/main.js"></script>
     <script>
         function allowDrop(ev) {
           ev.preventDefault();
@@ -15,104 +13,21 @@
         
         function drag(ev) {
           ev.dataTransfer.setData("text", ev.target.id);
+          console.log(ev.target.id);
         }
         
         function drop(ev) {
           ev.preventDefault();
           var data = ev.dataTransfer.getData("text");
+          console.log(data);
+          ev.target.appendChild(document.getElementById(data));
         }
         </script>
 <body>
     <h1> Chess</h1>
     <h2 id="tog">White's Turn First</h2>
-    <ul>
-        <div class="divv" id="row8">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b801">Brook</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b802">Bknight</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b803">Bbishop</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b804">Bqueen</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b805">Bking</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b806">Bbishop</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b807">Bknight</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b808">Brook</li>
-        </div>
-
-        <div class="divv" id="row7">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b701">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b702">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b703">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b704">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b705">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b706">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b707">Bpawn</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b708">Bpawn</li>
-        </div>
-
-        <div class="divv" id="row6">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b601"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b602"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b603"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b604"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b605"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b606"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b607"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b608"></li>
-        </div>
-
-        <div class="divv" id="row5">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b501"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b502"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b503"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b504"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b505"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b506"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b507"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b508"></li>
-        </div>
-
-        <div class="divv" id="row4">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b401"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b402"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b403"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b404"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b405"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b406"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b407"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b408"></li>
-        </div>
-
-        <div class="divv" id="3">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b301"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b302"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b303"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b304"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b305"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b306"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b307"></li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b308"></li>
-        </div>
-
-        <div class="divv" id="row2">
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b201">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b202">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b203">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b204">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b205">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b206">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b207">Wpawn</li>
-            <li class="box Wpawn" ondrop="drop(event)" ondragover="allowDrop(event)" id="b208">Wpawn</li>
-        </div>
-
-        <div class="divv" id="row1">
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b101">Wrook</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b102">Wknight</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b103">Wbishop</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b104">Wqueen</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b105">Wking</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b106">Wbishop</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b107">Wknight</li>
-            <li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b108">Wrook</li>
-        </div>
+    <ul id="board">
+        
     </ul>
 </body>
 </html>

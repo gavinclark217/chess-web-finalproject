@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Game</title>
     <link rel="stylesheet" href="size.css">
+    <script>
+        let boardSize = 0;
+        function getSize(size) {
+            boardSize = size;
+            document.getElementById('selectedSize').innerHTML = boardSize;
+        }
+    </script>
+    <script src="chess/chessboard.js"></script>
+
 </head>
 
 <body>
@@ -15,13 +24,17 @@
         <div class="size">
             <h2>How large would you like your chess board to be?</h2>
             <section class="options">
-                <input type="button" value="6 x 6">
-                <input type="button" value="7 x 7">
-                <input type="button" value="8 x 8">
-                <input type="button" value="9 x 9">
-                <input type="button" value="10 x 10">
-                <input type="button" value="11 x 11">
-                <input type="button" value="12 x 12">
+                <form action="" method="get" class="selection">
+                    <input type="button" onclick="getSize(6)" id="6" value="6 x 6">
+                    <input type="button" onclick="getSize(7)" id="7" value="7 x 7">
+                    <input type="button" onclick="getSize(8)" id="8" value="8 x 8">
+                    <input type="button" onclick="getSize(9)" id="9" value="9 x 9">
+                    <input type="button" onclick="getSize(10)" id="10" value="10 x 10">
+                    <input type="button" onclick="getSize(11)" id="11" value="11 x 11">
+                    <input type="button" onclick="getSize(12)" id="12" value="12 x 12">
+                </form>
+                <p>Your selected size is: </p>
+                <p id="selectedSize"></p>
             </section>
             <section class="next">
                 <a href="chess/chess.html">Next</a>
