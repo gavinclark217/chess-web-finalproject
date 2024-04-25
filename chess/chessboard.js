@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    console.log(boardSize);
-
+    // console.log(boardSize);
+    const blackPieces = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bking", "Bbishop", "Bknight", "Brook", "Bpawn"];
+    const whitePieces = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wking", "Wbishop", "Wknight", "Wrook", "Wpawn"];
 
     function drawBoard() {
         let board = document.getElementById("board");
@@ -18,14 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 column.innerHTML += '<li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b' + j + '0' + k + '"></li>';
             }
         }
-        const blackPieces = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bking", "Bbishop", "Bknight", "Brook", "Bpawn"];
+
         for (let l = 0; l < 8; l++) {
             let blackRows = document.getElementById('b80' + l);
             blackRows.innerHTML = blackPieces[l];
             let blackPawns = document.getElementById('b70' + l);
             blackPawns.innerHTML = blackPieces[8];
         }
-        const whitePieces = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wking", "Wbishop", "Wknight", "Wrook", "Wpawn"];
+
         for (let m = 0; m < 8; m++) {
             let whiteRows = document.getElementById('b20' + m);
             whiteRows.innerHTML = whitePieces[8];
@@ -39,14 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function insertImage() {
+        let i = 0;
+        let j = 0;
         document.querySelectorAll('.box').forEach(image => {
+
             if (image.innerText.length !== 0) {
                 if (image.innerText == 'Wpawn' || image.innerText == 'Bpawn') {
-                    image.innerHTML = `${image.innerText}<img class="alligmg allpawn" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    i++;
+                    image.innerHTML = `${image.innerText}<img class="alligmg allpawn" id="${image.innerText + i}" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
                 else {
-                    image.innerHTML = `${image.innerText}<img class="alligmg" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
+                    j++
+                    image.innerHTML = `${image.innerText}<img class="alligmg" id="${image.innerText + j}" src="${image.innerText}.png" draggable="true" ondragstart="drag(event)" alt="">`;
                     image.style.cursor = 'pointer';
                 }
             }
