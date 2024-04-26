@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
-      }
+    }
 
     function drawBoard() {
         let board = document.getElementById("board");
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     insertImage();
     // 9 17 25 8x +1
-    function coloring() { 
+    function coloring() {
         const boxes = document.querySelectorAll('.box');
         // console.log(boxes)
         let i = 0;
@@ -94,25 +94,25 @@ document.addEventListener("DOMContentLoaded", function () {
         let boardSize = sessionStorage.getItem("size");
         for (const box of boxes) {
             // console.log(Number.isInteger(e / 8), e, i, r)
-            if(Number.isInteger((e + r)/ (parseInt(boardSize) + 1))){
+            if (Number.isInteger((e + r) / (parseInt(boardSize) + 1))) {
                 r = r + 1;
-                if(r % 2){
+                if (r % 2) {
                     i = 1;
                 }
-                else{
+                else {
                     i = 0;
                 }
             }
-            if(i == 0){
+            if (i == 0) {
                 box.style.backgroundColor = 'rgb(240, 201, 150)';
                 i = 1;
             }
-            else{
+            else {
                 box.style.backgroundColor = 'rgb(100, 75, 43)';
                 i = 0;
             }
-            e = e +1;
-        
+            e = e + 1;
+
         }
     }
     coloring();
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-           
+
             function whosTurn(toggle) {
                 if (item.innerText == `${toggle}pawn`) {
                     item.style.backgroundColor = 'pink';
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             document.getElementById(`b${a + 100 - 1}`).style.backgroundColor = 'green';
                         }
                     }
-                    
+
                     if (tag % 2 == 0 && aup > 100) {
                         // black pawn
                         if (document.getElementById(`b${a - 100}`).innerText.length == 0) {
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             if (tog % 2 !== 0) {
                 document.getElementById('tog').innerText = "White's Turn"
-                whosTurn ('W');
+                whosTurn('W');
             }
             if (tog % 2 == 0) {
                 document.getElementById('tog').innerText = "Black's turn"

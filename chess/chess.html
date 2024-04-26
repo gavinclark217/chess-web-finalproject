@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chess</title>
-    <script src="/size.js"></script>
-    <script src="chessboard.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        function allowDrop(ev) {
-          ev.preventDefault();
-        }
-        
-        function drag(ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
-        }
-        
-        function drop(ev) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          ev.target.appendChild(document.getElementById(data));
-        }
-        </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+  <script src="chessboard.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      console.log(data);
+      console.log(ev.srcElement.parentElement);
+      // let target = ev.srcElement.parentElement;
+      let thePiece = document.getElementById(data);
+      let target = ev.srcElement;
+      if (target.parentElement.querySelector('.box')) {
+        console.log('dropped on square');
+        target.appendChild(thePiece);
+      } else {
+        console.log('dropped on image');
+        console.log(target.parentElement);
+        target.parentElement.appendChild(thePiece);
+        target.remove();
+      }
+      
+     
+    }
+  </script>
+
 <body>
-    <h1> Chess</h1>
-    <h2 id="tog">White's Turn First</h2>
-    <ul id="board">
-        
-    </ul>
+  <h1> Chess</h1>
+  <h2 id="tog">White's Turn First</h2>
+  <ul id="board">
+
+  </ul>
 </body>
+
 </html>
