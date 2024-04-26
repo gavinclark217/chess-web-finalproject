@@ -5,14 +5,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log(boardSize);
     const blackPieces = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bking", "Bbishop", "Bknight", "Brook", "Bpawn"];
     const whitePieces = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wking", "Wbishop", "Wknight", "Wrook", "Wpawn"];
-    const blackPiecesWithoutKing = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bbishop", "Bknight", "Brook", "Bpawn"];
-    const whitePiecesWithoutKing = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wbishop", "Wknight", "Wrook", "Wpawn"];
+    const blackPiecesWithoutKing = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bbishop", "Bknight", "Brook"];
+    const whitePiecesWithoutKing = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wbishop", "Wknight", "Wrook"];
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
 
     function drawBoard() {
-        
         let board = document.getElementById("board");
         let boardSize = sessionStorage.getItem("size");
-        console.log(boardSize);
         for (let i = boardSize; i > 0; i--) {
             board.innerHTML += '<div class="divv" id="row' + i + '"></div>';
         }
@@ -26,28 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         for (let l = 0; l < boardSize; l++) {
-            console.log(l);
             let blackRows = document.getElementById('b' + (boardSize) + '0' + l);
             if (l < 8) {
                 blackRows.innerHTML = blackPieces[l];
             }
             else {
-                blackRows.innerHTML = blackPiecesWithoutKing[Math.random(7)];
+
+                let blackRandomNumber = getRandomInt(6);
+                blackRows.innerHTML = blackPiecesWithoutKing[blackRandomNumber];
+                console.log("Black extra piece #" + (l - 7) + ": " + blackPiecesWithoutKing[blackRandomNumber]);
             }
             let blackPawns = document.getElementById('b' + (boardSize - 1) + '0' + l);
             blackPawns.innerHTML = blackPieces[8];
         }
 
         for (let m = 0; m < boardSize; m++) {
-            let whiteRows = document.getElementById('b20' + m);
+
+            let whitePawns = document.getElementById('b20' + m);
+            whitePawns.innerHTML = whitePieces[8];
+
+            let whiteRows = document.getElementById('b10' + m);
             if (m < 8) {
-                whiteRows.innerHTML = whitePieces[8];
+                whiteRows.innerHTML = whitePieces[m];
             }
             else {
-                whiteRows.innerHTML = whitePiecesWithoutKing[Math.random(7)];
+                let whiteRandomNumber = getRandomInt(6);
+                whiteRows.innerHTML = whitePiecesWithoutKing[whiteRandomNumber];
+                console.log("White extra piece #" + (m - 7) + ": " + whitePiecesWithoutKing[whiteRandomNumber]);
             }
-            let whitePawns = document.getElementById('b10' + m);
-            whitePawns.innerHTML = whitePieces[m];
         }
     }
     drawBoard();
@@ -83,9 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let i = 0;
         let e = 1;
         let r = 0;
+        let boardSize = sessionStorage.getItem("size");
         for (const box of boxes) {
             // console.log(Number.isInteger(e / 8), e, i, r)
-            if(Number.isInteger((e + r)/ 9)){
+            if(Number.isInteger((e + r)/ (parseInt(boardSize) + 1))){
                 r = r + 1;
                 if(r % 2){
                     i = 1;
