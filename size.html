@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="size.css">
     <script>
         let boardSize = 0;
+        // console.log(sessionStorage.getItem(size));
         function getSize(size) {
+            sessionStorage.setItem("size", size);
             boardSize = size;
+            console.log(boardSize);
             document.getElementById('selectedSize').innerHTML = boardSize;
         }
+        console.log(sessionStorage.getItem("size"));
     </script>
+
     <script src="chess/chessboard.js"></script>
 
 </head>

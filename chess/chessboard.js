@@ -5,31 +5,47 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log(boardSize);
     const blackPieces = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bking", "Bbishop", "Bknight", "Brook", "Bpawn"];
     const whitePieces = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wking", "Wbishop", "Wknight", "Wrook", "Wpawn"];
+    const blackPiecesWithoutKing = ["Brook", "Bknight", "Bbishop", "Bqueen", "Bbishop", "Bknight", "Brook", "Bpawn"];
+    const whitePiecesWithoutKing = ["Wrook", "Wknight", "Wbishop", "Wqueen", "Wbishop", "Wknight", "Wrook", "Wpawn"];
 
     function drawBoard() {
+        
         let board = document.getElementById("board");
-        for (let i = 8; i > 0; i--) {
+        let boardSize = sessionStorage.getItem("size");
+        console.log(boardSize);
+        for (let i = boardSize; i > 0; i--) {
             board.innerHTML += '<div class="divv" id="row' + i + '"></div>';
         }
-        for (let j = 8; j > 0; j--) {
+        for (let j = boardSize; j > 0; j--) {
 
             let idName = "row" + j;
             let column = document.getElementById(idName);
-            for (let k = 0; k < 8; k++) {
+            for (let k = 0; k < boardSize; k++) {
                 column.innerHTML += '<li class="box" ondrop="drop(event)" ondragover="allowDrop(event)" id="b' + j + '0' + k + '"></li>';
             }
         }
 
-        for (let l = 0; l < 8; l++) {
-            let blackRows = document.getElementById('b80' + l);
-            blackRows.innerHTML = blackPieces[l];
-            let blackPawns = document.getElementById('b70' + l);
+        for (let l = 0; l < boardSize; l++) {
+            console.log(l);
+            let blackRows = document.getElementById('b' + (boardSize) + '0' + l);
+            if (l < 8) {
+                blackRows.innerHTML = blackPieces[l];
+            }
+            else {
+                blackRows.innerHTML = blackPiecesWithoutKing[Math.random(7)];
+            }
+            let blackPawns = document.getElementById('b' + (boardSize - 1) + '0' + l);
             blackPawns.innerHTML = blackPieces[8];
         }
 
-        for (let m = 0; m < 8; m++) {
+        for (let m = 0; m < boardSize; m++) {
             let whiteRows = document.getElementById('b20' + m);
-            whiteRows.innerHTML = whitePieces[8];
+            if (m < 8) {
+                whiteRows.innerHTML = whitePieces[8];
+            }
+            else {
+                whiteRows.innerHTML = whitePiecesWithoutKing[Math.random(7)];
+            }
             let whitePawns = document.getElementById('b10' + m);
             whitePawns.innerHTML = whitePieces[m];
         }
@@ -63,12 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // 9 17 25 8x +1
     function coloring() { 
         const boxes = document.querySelectorAll('.box');
-        console.log(boxes)
+        // console.log(boxes)
         let i = 0;
         let e = 1;
         let r = 0;
         for (const box of boxes) {
-            console.log(Number.isInteger(e / 8), e, i, r)
+            // console.log(Number.isInteger(e / 8), e, i, r)
             if(Number.isInteger((e + r)/ 9)){
                 r = r + 1;
                 if(r % 2){
