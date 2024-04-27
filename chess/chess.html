@@ -8,6 +8,21 @@
   <script src="chessboard.js"></script>
   <link rel="stylesheet" href="style.css">
   <script>
+    function endGame(king) {
+      let wholeBoard = document.getElementById("board");
+      let winner = "TIE";
+      console.log(king[0]);
+      
+      if (king[0] === 'B') {
+        winner = "WHITE";
+      }
+      else {
+        winner = "BLACK";
+      }
+      wholeBoard.innerHTML = "";
+      wholeBoard.innerHTML = `GAME OVER - ${winner} WINS!!!`;
+    }
+
     function allowDrop(ev) {
       ev.preventDefault();
     }
@@ -27,21 +42,26 @@
       if (target.parentElement.querySelector('.box')) {
         console.log('dropped on square');
         target.appendChild(thePiece);
-      } 
+      }
       else {
         console.log('dropped on image');
-        console.log(target.parentElement);
+        console.log(target.id);
+        if (target.id === "Bking5" || target.id === "Wking11" || target.id === "Wking12" || target.id === "Wking13" || target.id === "Wking14" || target.id === "Wking15" || target.id === "Wking16" || target.id === "Wking17") {
+          endGame(target.id);
+          // target.parentElement.appendChild(thePiece);
+          // target.remove();
+          
+        }
         target.parentElement.appendChild(thePiece);
         target.remove();
       }
-      
-     
+
+
     }
   </script>
 
 <body>
   <h1> Chess</h1>
-  <h2 id="tog">White's Turn First</h2>
   <ul id="board">
 
   </ul>
